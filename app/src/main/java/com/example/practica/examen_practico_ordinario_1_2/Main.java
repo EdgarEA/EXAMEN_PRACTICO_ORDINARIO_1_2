@@ -20,7 +20,7 @@ public class Main extends AppCompatActivity {
     RadioButton rdBtnAlgebraica,rdBtnAritmetica;
     EditText edtTxtRes, edtTxtNum1,edtTxtNum2,edtTxtNum3,edtTxtNum4,edtTxtNum5;
     Button btnVerificar, btnVerificar2;
-    int vida;
+    int vida = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +78,7 @@ rdBtnAlgebraica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeLis
 
     } //CIERRE DE ONCREATE
 
+    /*
     public void onRadioButtonClicked(View v){
 
         if (rdBtnAritmetica.isChecked()) {
@@ -86,9 +87,9 @@ rdBtnAlgebraica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeLis
             Algebraica();
         }
     }
+*/
 
-
-
+prueba();
 
 
 
@@ -303,7 +304,7 @@ rdBtnAlgebraica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeLis
         if (ver1==ver2){
             Toast.makeText(Main.this, "GANASTE", Toast.LENGTH_SHORT).show();
             Toast.makeText(Main.this, "REINICIANDO", Toast.LENGTH_SHORT).show();
-            Aritmetica();
+            prueba2();
             vida = 1;
         }else {
 
@@ -319,7 +320,7 @@ rdBtnAlgebraica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeLis
                 case 3:
                     Toast.makeText(Main.this, "PERDISTE: REINICIANDO", Toast.LENGTH_SHORT).show();
                     vida = 1;
-                    Aritmetica();
+                    prueba2();
 
                     break;
                 default:
@@ -329,6 +330,35 @@ rdBtnAlgebraica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeLis
 
         }
 }
+    
+    /////
+        public void prueba(){
+
+        rdGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (rdBtnAlgebraica.isChecked()){
+                    Toast.makeText(Main.this, "Algebraico", Toast.LENGTH_SHORT).show();
+                }else {
+                    Aritmetico();
+                    Toast.makeText(Main.this, "Aritmetico", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+    }
+
+
+    public void prueba2(){
+
+        if (rdBtnAlgebraica.isChecked()){
+            Toast.makeText(Main.this, "Algebraico", Toast.LENGTH_SHORT).show();
+        }else {
+            Aritmetico();
+            Toast.makeText(Main.this, "Aritmetico", Toast.LENGTH_SHORT).show();
+        }
+    }
+    ////
 
 
 
